@@ -1,69 +1,62 @@
-==1. Instalação do Debian==
-Instalar o Debian buster net install com criptografia de disco e drivers proprietários
-== conectar a internet
-wpa_passphrasse
-wpa_supplicant
-dhclient
+## Instalação do Debian
+Seguir o procedimento padrão para instalação do Debian Buster netinstall
+O sistema será instalado sem ambiente  gráfico.
+No particionamento de disco utilizar ext-4 com LUKS
+Não colocar senha de root para utilizar sudo por padrão
 
-==Instalar o i3==
+## conectar a internet
+wpa_passphrasse SSID senha >> .wifi-keys.conf
+sudo wpa_supplicant -i wlo1 -c .wifi-keys.conf
+sudo dhclient
+ip a
+
+## Instalar o i3
 sudo apt install i3-wm i3locks i3status xinit dmenu
 startx
-nter
-Enter
-==Confirgurar teclado==
+
+## Confirgurar teclado
 na barra i3status existe um icone e com botão direito do mouse é possível acessar preferẽncias
-acrescentar portuguÊs do Brasil e excluir o Inglês no Ibus
-==
+acrescentar português do Brasil e excluir o Inglês no Ibus
+
+## Instalar alguns aplicativos Gnome
 sudo apt install nautilus gedit --no-install-recommends
 sudo apt install policykit-1-gnome  libblockdev-crypto2 gvfs-fuse
 sudo systemctl restart udisks2.service 
 
+## Montar SD com arquivos
+Montar pelo Nautilus
 
-
-sftp://alexsandroccarv@192.168.0.103:2222
-
-
-#Montar SD com arquivos
-
-#
+## Retornar o backup
 sudo apt install rsync
+rsync -Cravzp Origem Destino
+
+## Instalar navegador
 Baixar o firefox
 descompactar
 renomar para firefox-app
-mover paar APPS_AND_PROFIES
-
-
-
- sudo apt install libdbus-glib-1-2
+mover para APPS_AND_PROFIES
+sudo apt install libdbus-glib-1-2
 cd /usr/bin/
 sudo ln -s /home/alexsandroccarv/.APPS_AND_PROFILES/firefox-app/firefox firefox
+firefox -p
 
-Configurar brilho
-
-
-Configurar brilho
-
-
-Configurar som e controle de volume
-sudo apt install pulse-audio pavucontrol
-
-###############################
-Instalar o git
+## git
 sudo apt install git
 git config --global user.name "Alexsandro Cardoso Carvalho"
 git config --global user.email "alexsandro.carvalho@unifesp.br"
-# Projetos ficarão no diretório DEVEL
+Projetos ficarão no diretório DEVEL
+
+## Configurar som e controle de volume
+sudo apt install pulse-audio pavucontrol
 
 
-
-
-Arrumando as cores
-===xterm
+##Arrumando as cores
 sudo apt install xterm
-x-special/nautilus-clipboard
-copy
-file:///media/alexsandroccarv/acc-sc400/.Xresources
-xrdc
+.Xresources
+xrdb .Xresources
+sudo apt remove --purge mlterm*
+rm -r .mlterm/
+
 
 ===
 Bluetoth
