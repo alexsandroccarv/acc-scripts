@@ -201,6 +201,7 @@ bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F
 
 # https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html 
 # Controles de volume (Pulse Audio)
+# sudo apt install xbindkeys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
@@ -209,6 +210,7 @@ bindsyn XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
 ###
 
 # Controle de brilho
+#sudo apt install xbacklight
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 10 && echo xbacklight > /home/alexsandroccarv/.config/brightness && $refresh_i3status
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && echo xbacklight > /home/alexsandroccarv/.config/brightness && $refresh_i3status 
 ###
