@@ -39,15 +39,23 @@ sudo apt install libdbus-glib-1-2
 cd /usr/bin/
 sudo ln -s /home/alexsandroccarv/.APPS_AND_PROFILES/firefox-app/firefox firefox
 firefox -p
+!Mesmas regras para Thunderbird e Zotero
+
 
 ## git
 sudo apt install git
 git config --global user.name "Alexsandro Cardoso Carvalho"
 git config --global user.email "alexsandro.carvalho@unifesp.br"
+mkdir DEVEL
 Projetos ficarão no diretório DEVEL
+
 
 ## Configurar som e controle de volume
 sudo apt install pulse-audio pavucontrol
+
+sudo apt install xbindkeys
+xbindkeys --defaults > .xbindkeysrc
+xbindkeys --poll-rc
 
 
 ##Arrumando as cores
@@ -56,6 +64,8 @@ sudo apt install xterm
 xrdb .Xresources
 sudo apt remove --purge mlterm*
 rm -r .mlterm/
+
+echo 500 > /sys/class/backlight/intel_backlight/brightness
 
 
 ===
